@@ -20,23 +20,40 @@ public class GameControllerScript : MonoBehaviour {
     public Text speach;
 
     public int NumberOfPackagesInWarehouse = 0;
-    public int NumberOfIncomingPackages = 1000;
+    public int NumberOfIncomingPackages = 100;
     public int NumberOfOutgoingPackages = 1000;
-    public int NumberOfPackagesYouCanStore = 2000;
+    public int NumberOfPackagesYouCanStore = 5000;
 
     // Use this for initialization
     void Start () {
         Time.timeScale = 1;
+        InvokeRepeating("ReciveShipment", 2.0f, 2f);
+        InvokeRepeating("SendShipment", 2.0f, 3f);
     }
 	
-	// Update is called once per frame
-	void Update () {
-        if ((Score.score > 10) && !LakeActive)
+    public void SendShipment()
+    {
+        NumberOfPackagesInWarehouse = NumberOfPackagesInWarehouse - NumberOfOutgoingPackages;
+        if(NumberOfPackagesInWarehouse < 0)
+        {
+            NumberOfPackagesInWarehouse = 0;
+        }
+    }
+
+    public void ReciveShipment()
+    {
+        NumberOfPackagesInWarehouse = NumberOfPackagesInWarehouse + NumberOfIncomingPackages;
+        NumberOfIncomingPackages = NumberOfIncomingPackages +  100;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if ((Score.score > 50) && !LakeActive)
         {
             speach.text = "Hey! i know what, if you feel that it's getting a bit crouded in here just dump some packages in the lake. No one will find out. i Promise";
             ActivateLake();
             LakeActive = true;
-            StartCoroutine(Wait(5));
+            StartCoroutine(Wait(7));
             
         }
 
@@ -45,7 +62,7 @@ public class GameControllerScript : MonoBehaviour {
             speach.text = "Dude, Theres a forest close by. No one ever enters that place. Just dump some low priority packages there.";
             ActivateForest();
             ForestActive = true;
-            StartCoroutine(Wait(5));
+            StartCoroutine(Wait(7));
         }
 
         if ((Score.score > 500) && !FactoryActive)
@@ -53,10 +70,12 @@ public class GameControllerScript : MonoBehaviour {
             speach.text = "That Recycling plant needs some more garbage to burn if u know what i mean.";
             ActivateFactory();
             FactoryActive = true;
-            StartCoroutine(Wait(5));
+            StartCoroutine(Wait(7));
         }
 
         CalculateChanseForAccident();
+
+
 
     }
 
