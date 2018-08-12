@@ -7,6 +7,7 @@ public class Score : MonoBehaviour {
 
     public float score;
     private float elapsedTime = 0;
+    private bool caught = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,12 +16,34 @@ public class Score : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        score = score + Time.deltaTime * 100;
-
-        //GUI.Label(new Rect(10, 10, 100, 30), "score: " + (int)(score * 100));
-
-        Debug.Log(score);
+        if (!caught)
+        {
+            score = score + Time.deltaTime * 5;
+        } else
+        {
+            ShowScore();
+        }
+        
  
 	}
+
+    public void Penalty (float minus)
+    {
+        score = score - minus;
+    }
+
+    public void Bonus (float bonus)
+    {
+        score = score + bonus;
+    }
+
+    public void Caught()
+    {
+        caught = true;
+    }
+
+    public void ShowScore()
+    {
+        GetComponent<Save>().SaveFile(Mathf.RoundToInt(score));
+    }
 }
