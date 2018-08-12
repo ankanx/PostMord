@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameControllerScript : MonoBehaviour {
 
 
@@ -17,33 +17,46 @@ public class GameControllerScript : MonoBehaviour {
     public bool UsedFactory = false;
     public bool UsedForest = false;
     public float ChanseForAccident = 0;
-
+    public Text speach; 
 
 
     // Use this for initialization
     void Start () {
-		
-	}
+        Time.timeScale = 1;
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if ((Score.score > 10) && !LakeActive)
         {
+            speach.text = "Hey! i know what, if you feel that it's getting a bit crouded in here just dump some packages in the lake. No one will find out. i Promise";
             ActivateLake();
+            StartCoroutine(Wait(5));
         }
 
-        if ((Score.score > 50) && !ForestActive)
+        if ((Score.score > 100) && !ForestActive)
         {
+            speach.text = "Dude, Theres a forest close by. No one ever enters that place. Just dump some low priority packages there.";
             ActivateForest();
+            StartCoroutine(Wait(5));
         }
 
-        if ((Score.score > 100) && !FactoryActive)
+        if ((Score.score > 500) && !FactoryActive)
         {
+            speach.text = "That Recycling plant needs some more garbage to burn if u know what i mean.";
             ActivateFactory();
+            StartCoroutine(Wait(5));
         }
 
         CalculateChanseForAccident();
 
+    }
+
+    IEnumerator Wait(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);   //Wait
+        speach.text = "";
     }
 
     public void ActivateFactory()
