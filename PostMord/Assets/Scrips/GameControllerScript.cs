@@ -75,6 +75,10 @@ public class GameControllerScript : MonoBehaviour {
 
         CalculateChanseForAccident();
 
+        if(NumberOfPackagesInWarehouse > NumberOfPackagesYouCanStore)
+        {
+            Score.caught = true;
+        }
 
 
     }
