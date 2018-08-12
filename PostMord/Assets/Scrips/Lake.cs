@@ -27,5 +27,11 @@ public class Lake : MonoBehaviour {
             gamecontroller.UsedLake = true;
             gamecontroller.ChanseForAccident += 10;
         }
+        gamecontroller.NumberOfPackagesInWarehouse = gamecontroller.NumberOfPackagesInWarehouse - 200;
+        if (gamecontroller.NumberOfPackagesInWarehouse < 0)
+        {
+            gamecontroller.NumberOfPackagesInWarehouse = 0;
+        }
+
     }
 }
