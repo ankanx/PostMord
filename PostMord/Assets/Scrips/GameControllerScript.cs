@@ -31,7 +31,7 @@ public class GameControllerScript : MonoBehaviour {
         InvokeRepeating("SendShipment", 2.0f, 3f);
         InvokeRepeating("CalculateChanseForAccident", 10.0f, 10f);
 
-        speach.text = "Hello! Welcome to PostMord, as our new manager you are responceble for the day to day operations.";
+        speach.text = "Hello! Welcome to PostMord, as our new manager you are responsible for the day to day operations.";
         StartCoroutine(Wait(7));
     }
 	
@@ -69,7 +69,7 @@ public class GameControllerScript : MonoBehaviour {
             StartCoroutine(Wait(7));
         }
 
-        if ((Score.score > 400) && !FactoryActive)
+        if ((Score.score > 300) && !FactoryActive)
         {
             speach.text = "That recycling plant needs some more garbage to burn if u know what I mean.";
             ActivateFactory();
@@ -126,7 +126,7 @@ public class GameControllerScript : MonoBehaviour {
                 if (UsedFactory)
                 {
                     speach.text = "Oh god, they found out about the tactical incineration of excess workload. You lose 100 Points";
-                    Score.score = Score.score - 100;
+                    Score.score = Score.score - 300;
                     StartCoroutine(Wait(7));
                 }
                 break;
@@ -134,7 +134,7 @@ public class GameControllerScript : MonoBehaviour {
                 if (UsedForest)
                 {
                     speach.text = "Dam Greenpeace has been turning the forest upside down again! You lose 30 Points.";
-                    Score.score = Score.score - 30;
+                    Score.score = Score.score - 100;
                     StartCoroutine(Wait(7));
                 }
                 break;
@@ -142,13 +142,13 @@ public class GameControllerScript : MonoBehaviour {
                 if (UsedLake)
                 {
                     speach.text = "Them Dolphins found all your love letters!. You Lose 10 Points";
-                    Score.score = Score.score - 10;
+                    Score.score = Score.score - 30;
                     StartCoroutine(Wait(7));
                 }
                 break;
             case 3:
                 speach.text = "One driver forgot to close the doors!. Packages all over the road! You Lose 10 Points";
-                Score.score = Score.score - 10;
+                Score.score = Score.score - 30;
                 StartCoroutine(Wait(7));
                 break;
 
