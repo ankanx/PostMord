@@ -13,9 +13,9 @@ public class GameControllerScript : MonoBehaviour {
     private bool FactoryActive = false;
     private bool ForestActive = false;
 
-    private bool UsedLake = false;
-    private bool UsedFactory = false;
-    private bool UsedForest = false;
+    public bool UsedLake = false;
+    public bool UsedFactory = false;
+    public bool UsedForest = false;
     public float ChanseForAccident = 0;
 
 
@@ -27,19 +27,19 @@ public class GameControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Score.score > 1000) && !LakeActive)
+        if ((Score.score > 10) && !LakeActive)
         {
             ActivateLake();
         }
 
-        if ((Score.score > 10000) && !ForestActive)
+        if ((Score.score > 50) && !ForestActive)
         {
-            ActivateLake();
+            ActivateForest();
         }
 
-        if ((Score.score > 100000) && !FactoryActive)
+        if ((Score.score > 100) && !FactoryActive)
         {
-            ActivateLake();
+            ActivateFactory();
         }
 
         CalculateChanseForAccident();
@@ -53,7 +53,7 @@ public class GameControllerScript : MonoBehaviour {
 
     public void ActivateForest()
     {
-        Forest.GetComponent<Factory>().Activate();
+        Forest.GetComponent<Forest>().Activate();
     }
 
     public void ActivateLake()
