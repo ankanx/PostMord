@@ -12,8 +12,5 @@ public class Displayinfo : MonoBehaviour, IPointerEnterHandler
         GameObject.FindGameObjectWithTag("info").GetComponent<Text>().text = this.gameObject.name;
     }
 
-    public void OnPointerExit(PointerEventData data)
-    {
-        Debug.Log("OnPointerExit called.");
-    }
+
 }
