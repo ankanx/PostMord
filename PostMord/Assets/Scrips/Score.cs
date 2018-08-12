@@ -7,7 +7,9 @@ public class Score : MonoBehaviour {
 
     public float score;
     private float elapsedTime = 0;
-    private bool caught = false;
+    public bool caught = false;
+    public GameObject newScore;
+    public bool showScore = false;
 
 	// Use this for initialization
 	void Start () {
@@ -19,9 +21,10 @@ public class Score : MonoBehaviour {
         if (!caught)
         {
             score = score + Time.deltaTime * 5;
-        } else
+        } else if (!showScore)
         {
             ShowScore();
+            showScore = true;
         }
         
  
@@ -44,6 +47,6 @@ public class Score : MonoBehaviour {
 
     public void ShowScore()
     {
-        GetComponent<Save>().SaveFile(Mathf.RoundToInt(score));
+        newScore.active = true;
     }
 }

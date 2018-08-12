@@ -4,7 +4,8 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class DataCollector : MonoBehaviour {
+[System.Serializable]
+public class DataCollector {
 
     public List<List<string>> score;
 

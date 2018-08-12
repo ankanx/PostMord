@@ -8,7 +8,6 @@ public class Save : MonoBehaviour {
 
     public GameObject score;
     public DataCollector scoreList;
-    string currentName = "Asd";
 
     void Start()
     {
@@ -17,7 +16,7 @@ public class Save : MonoBehaviour {
         LoadFile();
     }
 
-    public void SaveFile(int currentScore)
+    public void SaveFile(string currentName, float currentScore)
     {
 
         // pop out for fetching the name of the player
@@ -27,8 +26,9 @@ public class Save : MonoBehaviour {
 
         if (File.Exists(destination)) file = File.OpenWrite(destination);
         else file = File.Create(destination);
-
-        scoreList.AddScore(currentName,  currentScore.ToString());
+        int scoreInt = Mathf.RoundToInt(currentScore);
+        
+        scoreList.AddScore(currentName,  scoreInt.ToString());
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, scoreList);
         file.Close();
@@ -37,6 +37,7 @@ public class Save : MonoBehaviour {
     public void LoadFile()
     {
         string destination = Application.persistentDataPath + "/scoreboard.dat";
+        Debug.Log(destination);
         FileStream file;
 
         if (File.Exists(destination)) file = File.OpenRead(destination);
@@ -51,8 +52,13 @@ public class Save : MonoBehaviour {
         file.Close();
 
         scoreList = data;
+        
 
-        Debug.Log(data.name);
-        Debug.Log(data.score);
+        foreach (List<string> s in scoreList.score)
+        {
+            Debug.Log(s[0]);
+            Debug.Log(s[1]);
+        }
+
     }
 }
