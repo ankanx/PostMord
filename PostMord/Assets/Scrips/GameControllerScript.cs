@@ -17,8 +17,12 @@ public class GameControllerScript : MonoBehaviour {
     public bool UsedFactory = false;
     public bool UsedForest = false;
     public float ChanseForAccident = 0;
-    public Text speach; 
+    public Text speach;
 
+    public int NumberOfPackagesInWarehouse = 0;
+    public int NumberOfIncomingPackages = 1000;
+    public int NumberOfOutgoingPackages = 1000;
+    public int NumberOfPackagesYouCanStore = 2000;
 
     // Use this for initialization
     void Start () {
