@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameControllerScript : MonoBehaviour {
 
 
@@ -13,37 +13,58 @@ public class GameControllerScript : MonoBehaviour {
     private bool FactoryActive = false;
     private bool ForestActive = false;
 
-    private bool UsedLake = false;
-    private bool UsedFactory = false;
-    private bool UsedForest = false;
+    public bool UsedLake = false;
+    public bool UsedFactory = false;
+    public bool UsedForest = false;
     public float ChanseForAccident = 0;
+    public Text speach;
 
-
+    public int NumberOfPackagesInWarehouse = 0;
+    public int NumberOfIncomingPackages = 1000;
+    public int NumberOfOutgoingPackages = 1000;
+    public int NumberOfPackagesYouCanStore = 2000;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        Time.timeScale = 1;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Score.score > 1000) && !LakeActive)
+        if ((Score.score > 10) && !LakeActive)
         {
+            speach.text = "Hey! i know what, if you feel that it's getting a bit crouded in here just dump some packages in the lake. No one will find out. i Promise";
             ActivateLake();
+            LakeActive = true;
+            StartCoroutine(Wait(5));
+            
         }
 
-        if ((Score.score > 10000) && !ForestActive)
+        if ((Score.score > 100) && !ForestActive)
         {
-            ActivateLake();
+            speach.text = "Dude, Theres a forest close by. No one ever enters that place. Just dump some low priority packages there.";
+            ActivateForest();
+            ForestActive = true;
+            StartCoroutine(Wait(5));
         }
 
-        if ((Score.score > 100000) && !FactoryActive)
+        if ((Score.score > 500) && !FactoryActive)
         {
-            ActivateLake();
+            speach.text = "That Recycling plant needs some more garbage to burn if u know what i mean.";
+            ActivateFactory();
+            FactoryActive = true;
+            StartCoroutine(Wait(5));
         }
 
         CalculateChanseForAccident();
 
+    }
+
+    IEnumerator Wait(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);   //Wait
+        speach.text = "";
     }
 
     public void ActivateFactory()
@@ -53,7 +74,7 @@ public class GameControllerScript : MonoBehaviour {
 
     public void ActivateForest()
     {
-        Forest.GetComponent<Factory>().Activate();
+        Forest.GetComponent<Forest>().Activate();
     }
 
     public void ActivateLake()
