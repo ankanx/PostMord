@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 105421436}
   - component: {fileID: 105421437}
   - component: {fileID: 105421438}
+  - component: {fileID: 105421439}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -306,6 +307,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 0}
+--- !u!114 &105421439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105421435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54305c3be653a9e45b3f0ca842b1eac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Forest: {fileID: 1204720365}
+  Lake: {fileID: 1202988887}
+  Factory: {fileID: 2020035141}
+  Score: {fileID: 105421437}
+  ChanseForAccident: 0
 --- !u!1 &205871102
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,8 +748,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5f8b2cad6909be84f8473baf236a7f84, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4095,7 +4112,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1504088861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -126, z: 0}
+  m_LocalPosition: {x: 147, y: 27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1723290686}
@@ -4618,7 +4635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1836500060
 RectTransform:
   m_ObjectHideFlags: 0
