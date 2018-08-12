@@ -307,7 +307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 0}
-  scoreList: {fileID: 0}
 --- !u!114 &105421439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,9 +318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54305c3be653a9e45b3f0ca842b1eac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Forest: {fileID: 0}
-  Lake: {fileID: 0}
-  Burner: {fileID: 0}
+  Forest: {fileID: 1204720365}
+  Lake: {fileID: 1202988887}
+  Factory: {fileID: 2020035141}
+  Score: {fileID: 105421437}
+  ChanseForAccident: 0
 --- !u!1 &205871102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4634,7 +4635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1836500060
 RectTransform:
   m_ObjectHideFlags: 0
