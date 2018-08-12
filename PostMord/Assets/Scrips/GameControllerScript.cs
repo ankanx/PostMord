@@ -50,7 +50,7 @@ public class GameControllerScript : MonoBehaviour {
     void Update () {
         if ((Score.score > 50) && !LakeActive)
         {
-            speach.text = "Hey! i know what, if you feel that it's getting a bit crouded in here just dump some packages in the lake. No one will find out. i Promise";
+            speach.text = "Hey! I know what, if you feel that it's getting a bit crowded in here just dump some packages in the lake. No one will find out. I promise.";
             ActivateLake();
             LakeActive = true;
             StartCoroutine(Wait(7));
@@ -59,7 +59,7 @@ public class GameControllerScript : MonoBehaviour {
 
         if ((Score.score > 100) && !ForestActive)
         {
-            speach.text = "Dude, Theres a forest close by. No one ever enters that place. Just dump some low priority packages there.";
+            speach.text = "Dude, There is a forest close by. No one ever enters that place. Just dump some low priority packages there.";
             ActivateForest();
             ForestActive = true;
             StartCoroutine(Wait(7));
@@ -67,7 +67,7 @@ public class GameControllerScript : MonoBehaviour {
 
         if ((Score.score > 500) && !FactoryActive)
         {
-            speach.text = "That Recycling plant needs some more garbage to burn if u know what i mean.";
+            speach.text = "That recycling plant needs some more garbage to burn if u know what I mean.";
             ActivateFactory();
             FactoryActive = true;
             StartCoroutine(Wait(7));
