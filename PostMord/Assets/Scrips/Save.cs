@@ -19,8 +19,6 @@ public class Save : MonoBehaviour {
     public void SaveFile(string currentName, float currentScore)
     {
 
-        // pop out for fetching the name of the player
-
         string destination = Application.persistentDataPath + "/scoreboard.dat";
         FileStream file;
 
@@ -43,7 +41,7 @@ public class Save : MonoBehaviour {
         if (File.Exists(destination)) file = File.OpenRead(destination);
         else
         {
-            Debug.LogError("File not found");
+            //Debug.LogError("File not found");
             return;
         }
 
@@ -53,12 +51,5 @@ public class Save : MonoBehaviour {
 
         scoreList = data;
         
-
-        foreach (List<string> s in scoreList.score)
-        {
-            Debug.Log(s[0]);
-            Debug.Log(s[1]);
-        }
-
     }
 }

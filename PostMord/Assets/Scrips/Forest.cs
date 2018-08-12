@@ -20,6 +20,7 @@ public class Forest : MonoBehaviour {
     public void Activate()
     {
         gameObject.GetComponent<Button>().enabled = true;
+
     }
 
     public void Use()

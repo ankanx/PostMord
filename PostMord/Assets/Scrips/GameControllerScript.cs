@@ -35,13 +35,16 @@ public class GameControllerScript : MonoBehaviour {
         {
             speach.text = "Hey! i know what, if you feel that it's getting a bit crouded in here just dump some packages in the lake. No one will find out. i Promise";
             ActivateLake();
+            LakeActive = true;
             StartCoroutine(Wait(5));
+            
         }
 
         if ((Score.score > 100) && !ForestActive)
         {
             speach.text = "Dude, Theres a forest close by. No one ever enters that place. Just dump some low priority packages there.";
             ActivateForest();
+            ForestActive = true;
             StartCoroutine(Wait(5));
         }
 
@@ -49,6 +52,7 @@ public class GameControllerScript : MonoBehaviour {
         {
             speach.text = "That Recycling plant needs some more garbage to burn if u know what i mean.";
             ActivateFactory();
+            FactoryActive = true;
             StartCoroutine(Wait(5));
         }
 
