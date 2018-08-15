@@ -25,5 +25,11 @@ public class Factory : MonoBehaviour {
             gamecontroller.UsedFactory = true;
             gamecontroller.ChanseForAccident += 20;
         }
+
+        gamecontroller.NumberOfPackagesInWarehouse = gamecontroller.NumberOfPackagesInWarehouse - 2000;
+        if (gamecontroller.NumberOfPackagesInWarehouse < 0)
+        {
+            gamecontroller.NumberOfPackagesInWarehouse = 0;
+        }
     }
 }

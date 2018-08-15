@@ -6,10 +6,8 @@ public class Forest : MonoBehaviour {
 
     public GameControllerScript gamecontroller;
 
-
-	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -27,7 +25,12 @@ public class Forest : MonoBehaviour {
         if (!gamecontroller.UsedForest)
         {
             gamecontroller.UsedForest = true;
-            gamecontroller.ChanseForAccident += 10; 
+            gamecontroller.ChanseForAccident += 10;
+        }
+        gamecontroller.NumberOfPackagesInWarehouse = gamecontroller.NumberOfPackagesInWarehouse - 1000;
+        if(gamecontroller.NumberOfPackagesInWarehouse < 0)
+        {
+            gamecontroller.NumberOfPackagesInWarehouse = 0;
         }
     }
 }
